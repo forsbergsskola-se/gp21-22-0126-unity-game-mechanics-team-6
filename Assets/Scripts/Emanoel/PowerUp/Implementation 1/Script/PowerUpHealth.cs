@@ -38,7 +38,7 @@ public class PowerUpHealth : MonoBehaviour
             yield return new WaitForSeconds(duration);
             
             //Reverse the effect on our player
-            player.transform.localScale /= multiplier;
+            //stats.health /= multiplier;
 
             //Remove power up object
             Destroy(gameObject);
