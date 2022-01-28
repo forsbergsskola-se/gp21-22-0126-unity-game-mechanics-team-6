@@ -28,15 +28,22 @@ public class PowerUpSize : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
-        //Wait x amount of seconds
-        yield return new WaitForSeconds(duration);
-        
-        //Reverse the effect on our player
-        player.transform.localScale /= multiplier;
-        player.GetComponent<GroundChecker>().groundCheckLength /= multiplier;
-        player.GetComponent<GroundChecker>().groundCheckRadius /= multiplier;
-
-        //Remove power up object
-        Destroy(gameObject);
+        //Wait x amount of seconds, if 0 then forever.
+        if (duration == 0f)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            yield return new WaitForSeconds(duration);
+            
+            //Reverse the effect on our player
+            player.transform.localScale /= multiplier;
+            player.GetComponent<GroundChecker>().groundCheckLength /= multiplier;
+            player.GetComponent<GroundChecker>().groundCheckRadius /= multiplier;
+            
+            //Remove power up object
+            Destroy(gameObject);
+        }
     }
 }

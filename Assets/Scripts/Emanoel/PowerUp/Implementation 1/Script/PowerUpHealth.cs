@@ -36,6 +36,7 @@ public class PowerUpHealth : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(duration);
+            
             //Reverse the effect on our player
             player.transform.localScale /= multiplier;
 
