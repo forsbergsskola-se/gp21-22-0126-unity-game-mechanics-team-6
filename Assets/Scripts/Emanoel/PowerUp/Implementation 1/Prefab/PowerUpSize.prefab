@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5687006455575713945}
   - component: {fileID: 5687006455575713944}
   m_Layer: 0
-  m_Name: PowerUpPlayerGetsBigger
+  m_Name: PowerUpSize
   m_TagString: PowerUpSize
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
