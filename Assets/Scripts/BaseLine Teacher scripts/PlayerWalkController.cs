@@ -5,7 +5,7 @@ public class PlayerWalkController : MonoBehaviour
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private PlayerInputController playerInputController;
     [SerializeField] private GroundChecker groundChecker;
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
     [SerializeField] private float chargingMoveSpeedFactor = 0.5f;
 
     private void Update()
