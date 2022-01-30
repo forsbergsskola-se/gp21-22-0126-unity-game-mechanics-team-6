@@ -7,7 +7,7 @@ public class PlayerChargeJumpController : MonoBehaviour
     [SerializeField] private GroundChecker groundChecker;
     [SerializeField] public float minimumJumpForce = 100f;
     [SerializeField] public float maximumJumpForce = 1000f;
-    [SerializeField] private float chargeTime = 1f;
+    [SerializeField] public float chargeTime = 1f;
 
     private float jumpCharge;
 
