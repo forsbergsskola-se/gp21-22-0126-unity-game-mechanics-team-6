@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpHealth : MonoBehaviour
 {
     public float multiplier = 1.4f;
+    [Tooltip("0 = Forever, otherwise in seconds")]
     public float duration = 100f;
     
     public GameObject pickupEffect;
