@@ -1,27 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using OpenCover.Framework.Model;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+namespace Oskar.Movement.Implementation1.Control
 {
-    [SerializeField] private MovementController movementController;
-    private KeyBinds keyBinds;
-
-    private void Start()
+    public class PlayerInput : MonoBehaviour
     {
-        keyBinds = FindObjectOfType<KeyBinds>();
-    }
+        [SerializeField] private MovementController movementController;
+        private KeyBinds keyBinds;
 
-    private void Update()
-    {
-        // Check player input.
-        // Call correct movement system based on input
-
-        if (Input.GetKey(keyBinds.FlyUp))
+        private void Start()
         {
-            movementController.Fly();
+            keyBinds = FindObjectOfType<KeyBinds>();
+        }
+
+        private void Update()
+        {
+            // Check player input.
+            // Call correct movement system based on input
+
+            if (Input.GetKey(keyBinds.FlyUp))
+            {
+                movementController.Fly();
+            }
         }
     }
 }
