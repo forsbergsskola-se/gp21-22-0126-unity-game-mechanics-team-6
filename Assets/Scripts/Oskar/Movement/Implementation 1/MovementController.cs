@@ -8,6 +8,6 @@ public class MovementController : MonoBehaviour
 
     public void Fly()
     {
-        flightSystem.Fly();
+        flightSystem.Fly = true;
     }
 }
