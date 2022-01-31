@@ -18,9 +18,15 @@ namespace Oskar.Movement.Implementation1.Control
             // Call correct movement system based on input
 
             if (Input.GetKey(keyBinds.FlyUp))
-            {
                 movementController.Fly();
-            }
+            
+
+            if (Input.GetKey(keyBinds.MoveLeft)) 
+                movementController.MoveLeft();
+            
+
+            if (Input.GetKey(keyBinds.MoveRight))
+                movementController.MoveRight();
         }
     }
 }
