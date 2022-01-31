@@ -8,10 +8,13 @@ public class FlightSystem : MonoBehaviour
 {
     public bool Fly;
 
-    [SerializeField] private float maxFlightFuel;
-    [SerializeField] private float fuelUsagePerSecond;
-    [SerializeField] private float fuelRegenPerSecond;
-    [SerializeField] private int maxFuelRegenCooldown;
+    [SerializeField] private float maxFlightFuel = 150;
+    [SerializeField] private float fuelUsagePerSecond = 60;
+    [SerializeField] private float fuelRegenPerSecond = 100;
+    [SerializeField] private int maxFuelRegenCooldown = 30;
+    [SerializeField] private float upwardsBoostPerUpdate = 3;
+    [SerializeField] private float maxFlightSpeed = 5;
+    [SerializeField] private Rigidbody myRigidbody;
 
     private float fuelUsagePerUpdate;
     private float fuelRegenPerUpdate;
@@ -25,7 +28,7 @@ public class FlightSystem : MonoBehaviour
         set
         {
             flightFuel = Mathf.Clamp(value, 0, maxFlightFuel);
-            Debug.Log($"Fuel level: {flightFuel}");
+            Debug.Log($"Fuel level: {flightFuel}"); // TODO: Replace with ui element
         }
     }
     
@@ -52,24 +55,20 @@ public class FlightSystem : MonoBehaviour
         {
             FlightFuel -= fuelUsagePerUpdate;
             
-            fuelRegenCooldown = maxFuelRegenCooldown;
+            StartFuelRegenCooldown();
             
             BoostUpOnce();
         }
-        else Debug.Log("Out of fuel");
+        else Debug.Log("Out of fuel"); // TODO: Replace with ui element
         
         Fly = false;
     }
 
     
     
-    void BoostUpOnce()
-    {
-        // FlyHere
-    }
-    
-    
-
+    /// <summary>
+    /// Regenerate fuel if not on cooldown.
+    /// </summary>
     void RegenerateFuel()
     {
         if (fuelRegenCooldown > 0)
@@ -79,5 +78,32 @@ public class FlightSystem : MonoBehaviour
         }
         
         FlightFuel += fuelRegenPerUpdate;
+    }
+    
+
+    
+    /// <summary>
+    /// Start the cooldown to regenerating fuel.
+    /// </summary>
+    private void StartFuelRegenCooldown()
+    {
+        fuelRegenCooldown = maxFuelRegenCooldown;
+    }
+
+    
+    
+    /// <summary>
+    /// Boost the character upwards once.
+    /// </summary>
+    void BoostUpOnce()
+    {
+        var currentVelocity = myRigidbody.velocity;
+
+        // This limits our max flight speed upwards, without limiting the player itself to not fly up faster because of other reasons. Like a explosion or jump pad.
+        var newYVelocity = currentVelocity.y > maxFlightSpeed
+            ? currentVelocity.y
+            : currentVelocity.y + upwardsBoostPerUpdate;
+
+        myRigidbody.velocity = new Vector3(currentVelocity.x, newYVelocity, currentVelocity.z);
     }
 }
