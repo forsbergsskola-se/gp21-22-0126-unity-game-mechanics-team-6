@@ -14,6 +14,10 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
 
         private float horizontalVelocityPerUpdate;
 
+        private const float FacingRight = 1;
+        private const float FacingLeft = -1;
+
+        
 
         private void Start()
         {
@@ -21,6 +25,7 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
         }
 
 
+        
         private void FixedUpdate()
         {
             if (!MoveLeft && !MoveRight)
@@ -40,6 +45,10 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
 
 
 
+        /// <summary>
+        /// Modify the velocity of the object. Takes max speed into account.
+        /// </summary>
+        /// <param name="horizontalModifier">speed modifier</param>
         private void ModifyVelocity(float horizontalModifier)
         {
             var velocity = myRigidbody.velocity;
@@ -64,28 +73,33 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
 
 
 
+        /// <summary>
+        /// Flip the character based on x velocity.
+        /// </summary>
+        /// <param name="horizontalModifier"></param>
         private void FlipCharacter(float horizontalModifier)
         {
-            switch (horizontalModifier)
+            switch (horizontalModifier) 
             {
-                default:
-                    return;
                 case > 0:
-                    SetLocalScale(1);
+                    SetDirection(FacingRight);
                     break;
                 case < 0:
-                    SetLocalScale(-1);
+                    SetDirection(FacingLeft);
                     break;
             }
         }
 
-
-
-        private void SetLocalScale(float xValue)
+        
+        
+        /// <summary>
+        /// Sets direction by changing the local scale. Input 1 to face right, -1 to face left.
+        /// </summary>
+        /// <param name="direction">Direction to face</param>
+        private void SetDirection(float direction)
         {
-            Debug.Log("Flipping character to " + xValue);
             var currentLocalScale = transform.localScale;
-            transform.localScale = new Vector3(xValue, currentLocalScale.y, currentLocalScale.z);
+            transform.localScale = new Vector3(direction, currentLocalScale.y, currentLocalScale.z);
         }
     }
 }
