@@ -9,6 +9,11 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private MovementController movementController;
     private KeyBinds keyBinds;
 
+    private void Start()
+    {
+        keyBinds = FindObjectOfType<KeyBinds>();
+    }
+
     private void Update()
     {
         // Check player input.
