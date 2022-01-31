@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyBinds : MonoBehaviour
 {
-    public KeyCode MoveLeft;
-    public KeyCode MoveRight;
-    public KeyCode FlyUp;
+    public KeyCode MoveLeft = KeyCode.A;
+    public KeyCode MoveRight = KeyCode.D;
+    public KeyCode FlyUp = KeyCode.W;
 }
