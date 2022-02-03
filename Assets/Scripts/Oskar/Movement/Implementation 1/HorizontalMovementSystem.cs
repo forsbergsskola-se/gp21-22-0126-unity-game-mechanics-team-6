@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Oskar.Movement.Implementation1.HorizontalMovement
