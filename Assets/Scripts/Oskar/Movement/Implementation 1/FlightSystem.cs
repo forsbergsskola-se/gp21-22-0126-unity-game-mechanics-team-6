@@ -4,7 +4,7 @@ namespace Oskar.Movement.Implementation1.Flight
 {
     public class FlightSystem : MonoBehaviour
     {
-        public bool Fly;
+        [HideInInspector] public bool Fly;
 
         [SerializeField] private float maxFlightFuel = 150;
         [SerializeField] private float fuelUsagePerSecond = 60;

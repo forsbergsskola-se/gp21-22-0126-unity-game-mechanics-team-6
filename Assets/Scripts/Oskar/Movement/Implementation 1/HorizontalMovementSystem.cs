@@ -5,11 +5,11 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
 {
     public class HorizontalMovementSystem : MonoBehaviour
     {
-        public bool MoveLeft;
-        public bool MoveRight;
+        [HideInInspector] public bool MoveLeft;
+        [HideInInspector] public bool MoveRight;
 
-        [SerializeField] private float maxHorizontalMovementSpeed;
-        [SerializeField] private float horizontalVelocityPerSecond;
+        [SerializeField] private float maxHorizontalMovementSpeed = 4;
+        [SerializeField] private float horizontalVelocityPerSecond = 50;
         [SerializeField] private Rigidbody myRigidbody;
 
         private float horizontalVelocityPerUpdate;
