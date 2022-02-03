@@ -25,7 +25,8 @@ namespace Oskar.Movement.Implementation2.Flight
 
         [SerializeField] private float maxHorizontalSpeedPerSecond;
         [SerializeField] private float maxVerticalSpeedPerSecond;
-        
+
+        [SerializeField] private Rigidbody myRigidBody;
         
         private float maxHorizontalSpeedPerUpdate;
         private float maxVerticalSpeedPerUpdate;
@@ -40,44 +41,71 @@ namespace Oskar.Movement.Implementation2.Flight
 
         private void FixedUpdate()
         {
-            var x = currentVelocity.x;
-            var y = currentVelocity.y;
-
-            if (MoveUp)
-                y += verticalAcceleration;
-            else if (y > 0)
-                y = Mathf.Max(y - verticalAcceleration, 0);
-            
-
-            if (MoveDown)
-                y -= verticalAcceleration;
-            else if (y < 0)
-                y = Mathf.Min(y + verticalAcceleration, 0);
-            
-
-            if (MoveLeft)
-                x -= horizontalAcceleration;
-            else if (x < 0)
-                x = Mathf.Min(x + horizontalAcceleration, 0);
-
-            if (MoveRight)
-                x += horizontalAcceleration;
-            else if (x > 0)
-                x = Mathf.Max(x - horizontalAcceleration, 0);
+            var velocity = myRigidBody.velocity;
+            var newX = velocity.x;
+            var newY = velocity.y;
             
             
+            if (!(MoveUp && MoveDown))
+            {
+                if (MoveUp)
+                    if (newY < maxVerticalSpeedPerUpdate)
+                        newY += verticalAcceleration;
+                if (MoveDown)
+                    if (newY > -maxVerticalSpeedPerUpdate)
+                        newY -= verticalAcceleration;
+            }
+
+            if (!(MoveLeft && MoveRight))
+            {
+                if (MoveLeft)
+                    if (newX > -maxHorizontalSpeedPerUpdate)
+                        newX -= horizontalAcceleration;
+                if (MoveRight)
+                    if (newX < maxHorizontalSpeedPerUpdate)
+                        newX += horizontalAcceleration;
+            }
+
+            myRigidBody.velocity = new Vector3(newX, newY, velocity.z);
+
+            //     var x = currentVelocity.x;
+            //     var y = currentVelocity.y;
+            //
+            //     if (MoveUp)
+            //         y += verticalAcceleration;
+            //     else if (y > 0)
+            //         y = Mathf.Max(y - verticalAcceleration, 0);
+            //     
+            //
+            //     if (MoveDown)
+            //         y -= verticalAcceleration;
+            //     else if (y < 0)
+            //         y = Mathf.Min(y + verticalAcceleration, 0);
+            //     
+            //
+            //     if (MoveLeft)
+            //         x -= horizontalAcceleration;
+            //     else if (x < 0)
+            //         x = Mathf.Min(x + horizontalAcceleration, 0);
+            //
+            //     if (MoveRight)
+            //         x += horizontalAcceleration;
+            //     else if (x > 0)
+            //         x = Mathf.Max(x - horizontalAcceleration, 0);
+            //     
+            //     
             MoveUp = false;
             MoveDown = false;
             MoveLeft = false;
             MoveRight = false;
-
-
-
-            currentVelocity = new Vector3(Mathf.Clamp(x, -maxHorizontalSpeedPerUpdate, maxHorizontalSpeedPerUpdate),
-                Mathf.Clamp(y, -maxVerticalSpeedPerUpdate, maxVerticalSpeedPerUpdate));
-
-            Debug.Log(currentVelocity);
-            transform.position += currentVelocity;
+            //
+            //
+            //
+            //     currentVelocity = new Vector3(Mathf.Clamp(x, -maxHorizontalSpeedPerUpdate, maxHorizontalSpeedPerUpdate),
+            //         Mathf.Clamp(y, -maxVerticalSpeedPerUpdate, maxVerticalSpeedPerUpdate));
+            //
+            //     Debug.Log(currentVelocity);
+            //     transform.position += currentVelocity;
         }
     }
 }
