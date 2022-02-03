@@ -7,9 +7,9 @@ namespace Oskar.Movement.Implementation2.Control
     {
         [SerializeField] private AirMovementSystem airMovementSystem;
 
-        public void MoveUp() => airMovementSystem.MoveUp = true;
-        public void MoveDown() => airMovementSystem.MoveDown = true;
         public void MoveLeft() => airMovementSystem.MoveLeft = true;
         public void MoveRight() => airMovementSystem.MoveRight = true;
+        public void MoveUp() => airMovementSystem.MoveUp = true;
+        public void MoveDown() => airMovementSystem.MoveDown = true;
     }
 }
