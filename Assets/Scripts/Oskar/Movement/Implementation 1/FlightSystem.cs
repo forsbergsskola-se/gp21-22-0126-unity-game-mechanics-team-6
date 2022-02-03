@@ -5,6 +5,8 @@ namespace Oskar.Movement.Implementation1.Flight
     public class FlightSystem : MonoBehaviour
     {
         [HideInInspector] public bool Fly;
+        public delegate void FuelLevelChanged(float newValue);
+        public FuelLevelChanged OnFuelLevelChanged;
 
         [SerializeField] private float maxFlightFuel = 150;
         [SerializeField] private float fuelUsagePerSecond = 60;
@@ -18,15 +20,19 @@ namespace Oskar.Movement.Implementation1.Flight
         private float fuelRegenPerUpdate;
         private float flightFuel;
         private int fuelRegenCooldown;
+        
+
     
-    
+        /// <summary>
+        /// Holds current fuel level.
+        /// </summary>
         private float FlightFuel
         {
             get => flightFuel;
             set
             {
                 flightFuel = Mathf.Clamp(value, 0, maxFlightFuel);
-                Debug.Log($"Fuel level: {flightFuel}"); // TODO: Replace with ui element
+                OnFuelLevelChanged?.Invoke(flightFuel);
             }
         }
     
