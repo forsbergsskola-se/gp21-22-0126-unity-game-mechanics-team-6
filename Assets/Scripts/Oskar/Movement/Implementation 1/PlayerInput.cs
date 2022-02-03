@@ -14,9 +14,6 @@ namespace Oskar.Movement.Implementation1.Control
 
         private void Update()
         {
-            // Check player input.
-            // Call correct movement system based on input
-
             if (Input.GetKey(keyBinds.FlyUp))
                 movementController.Fly();
             
