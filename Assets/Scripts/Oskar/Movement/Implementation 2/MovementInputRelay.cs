@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Oskar.Movement.Implementation2.Control
 {
-    public class MovmentInputRelay : MonoBehaviour
+    public class MovementInputRelay : MonoBehaviour
     {
         [SerializeField] private AirMovementSystem airMovementSystem;
 
