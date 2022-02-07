@@ -110,5 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf469d4c7554d84686f91bdb802b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportations: 2
   duration: 10
-  pickupEffect: {fileID: 1853638071449212, guid: 616af3b84e12a1140b22ed5a17af9e53, type: 3}
+  pickupEffect: {fileID: 1284778659018410, guid: 884c7fe551d0bb8458b2bf591421bc9f, type: 3}
