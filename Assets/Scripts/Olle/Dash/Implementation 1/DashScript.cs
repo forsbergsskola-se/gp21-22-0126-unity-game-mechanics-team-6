@@ -28,7 +28,7 @@ public class DashScript : MonoBehaviour
         //Checking if dashing, if not, then checking if currently pressing dash input(V)
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 //Assigning direction no. to each input direction
                 if (horInput < 0)
