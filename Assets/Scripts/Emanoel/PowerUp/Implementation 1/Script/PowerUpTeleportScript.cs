@@ -7,6 +7,8 @@ public class PowerUpTeleportScript : MonoBehaviour
 {
     Vector3 newPosition;
 
+    public int teleportations;
+
     private void Start()
     {
         newPosition = transform.position;
@@ -17,12 +19,20 @@ public class PowerUpTeleportScript : MonoBehaviour
         // Check if you click the left mouse button then change position
         if (Input.GetMouseButtonDown(1))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (teleportations != 0)
             {
-                newPosition = hit.point;
-                transform.position = newPosition;
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    newPosition = hit.point;
+                    transform.position = newPosition;
+                    teleportations--;
+                }
+            }
+            else
+            {
+                this.enabled = false;
             }
 
         }

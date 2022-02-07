@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpTeleport : MonoBehaviour
 {
-    public float duration = 100f;
+    public int teleportations = 2;
     
     public GameObject pickupEffect;
    
@@ -20,25 +20,16 @@ public class PowerUpTeleport : MonoBehaviour
 
         //Apply effect to the player
         player.GetComponent<PowerUpTeleportScript>().enabled = true;
+        player.GetComponent<PowerUpTeleportScript>().teleportations = teleportations;
         
         //disable all visual for powerup
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
+        
+        yield return new WaitForSeconds(1);
 
-        //Wait x amount of seconds, if 0 then forever.
-        if (duration == 0f)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            yield return new WaitForSeconds(duration);
-            
-            //Reverse the effect on our player
-            player.GetComponent<PowerUpTeleportScript>().enabled = false;
-            
-            //Remove power up object
-            Destroy(gameObject);
-        }
+        //Remove power up object
+        Destroy(gameObject);
+        
     }
 }
