@@ -7,13 +7,13 @@ namespace Oskar.Movement.Implementation1.Flight
         [HideInInspector] public bool Fly;
         public delegate void FuelLevelChanged(float newValue);
         public FuelLevelChanged OnFuelLevelChanged;
-
-        [SerializeField] private float maxFlightFuel = 150;
-        [SerializeField] private float fuelUsagePerSecond = 60;
-        [SerializeField] private float fuelRegenPerSecond = 100;
-        [SerializeField] private int maxFuelRegenCooldown = 30;
-        [SerializeField] private float upwardsBoostPerUpdate = 3;
-        [SerializeField] private float maxFlightSpeed = 5;
+        public float maxFlightFuel = 150;
+        public float fuelUsagePerSecond = 60;
+        public float fuelRegenPerSecond = 100;
+        public int maxFuelRegenCooldown = 30;
+        public float upwardsBoostPerUpdate = 3;
+        public float maxFlightSpeed = 5;
+        
         [SerializeField] private Rigidbody myRigidbody;
 
         private float fuelUsagePerUpdate;

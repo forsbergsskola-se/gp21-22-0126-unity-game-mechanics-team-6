@@ -7,16 +7,14 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
         [HideInInspector] public bool MoveLeft;
         [HideInInspector] public bool MoveRight;
 
-        [SerializeField] private float maxHorizontalMovementSpeed = 4;
-        [SerializeField] private float horizontalVelocityPerSecond = 50;
+        public float maxHorizontalMovementSpeed = 4;
+        public float horizontalVelocityPerSecond = 50;
+        
         [SerializeField] private Rigidbody myRigidbody;
 
         private float horizontalVelocityPerUpdate;
 
-        private const float FacingRight = 1;
-        private const float FacingLeft = -1;
 
-        
 
         private void Start()
         {
@@ -39,7 +37,7 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
             MoveRight = false;
             
             ModifyVelocity(currentSpeedModifier);
-            FlipCharacter(currentSpeedModifier);
+            SetDirection(currentSpeedModifier);
         }
 
 
@@ -76,29 +74,54 @@ namespace Oskar.Movement.Implementation1.HorizontalMovement
         /// Flip the character based on x velocity.
         /// </summary>
         /// <param name="horizontalModifier"></param>
-        private void FlipCharacter(float horizontalModifier)
+        private void SetDirection(float horizontalModifier)
         {
-            switch (horizontalModifier) 
+            
+            
+            
+            // switch (horizontalModifier) 
+            // {
+            //     case > 0:
+            //         SetDirection(FacingRight);
+            //         break;
+            //     case < 0:
+            //         SetDirection(FacingLeft);
+            //         break;
+            // }
+
+            if (horizontalModifier > 0 && currentDirection != Look.Left)
             {
-                case > 0:
-                    SetDirection(FacingRight);
-                    break;
-                case < 0:
-                    SetDirection(FacingLeft);
-                    break;
+                FlipCharacter();
+                currentDirection = Look.Left;
+            }
+
+            if (horizontalModifier < 0 && currentDirection != Look.Right)
+            {
+                FlipCharacter();
+                currentDirection = Look.Right;
             }
         }
 
+
+
+        private Look currentDirection;
+
+        enum Look
+        {
+            Left,
+            Right
+        }
+        
         
         
         /// <summary>
         /// Sets direction by changing the local scale. Input 1 to face right, -1 to face left.
         /// </summary>
         /// <param name="direction">Direction to face</param>
-        private void SetDirection(float direction)
+        private void FlipCharacter()
         {
             var currentLocalScale = transform.localScale;
-            transform.localScale = new Vector3(direction, currentLocalScale.y, currentLocalScale.z);
+            transform.localScale = new Vector3(currentLocalScale.x * -1, currentLocalScale.y, currentLocalScale.z);
         }
     }
 }

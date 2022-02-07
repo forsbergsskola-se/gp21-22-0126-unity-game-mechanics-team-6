@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oskar.Movement.Implementation1.Flight;
 using UnityEngine;
 
-public class PowerUpJumpForce : MonoBehaviour
+public class PowerUpFlightSpeed : MonoBehaviour
 {
     public float multiplier = 1.4f;
     [Tooltip("0 = Forever, otherwise in seconds")]
@@ -21,8 +22,7 @@ public class PowerUpJumpForce : MonoBehaviour
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //Apply effect to the player
-        player.GetComponent<PlayerChargeJumpController>().minimumJumpForce *= multiplier;
-        player.GetComponent<PlayerChargeJumpController>().maximumJumpForce *= multiplier;
+        player.GetComponent<FlightSystem>().maxFlightSpeed *= multiplier;
         
         //disable all visual for powerup
         GetComponent<MeshRenderer>().enabled = false;
@@ -38,8 +38,7 @@ public class PowerUpJumpForce : MonoBehaviour
             yield return new WaitForSeconds(duration);
             
             //Reverse the effect on our player
-            player.GetComponent<PlayerChargeJumpController>().minimumJumpForce /= multiplier;
-            player.GetComponent<PlayerChargeJumpController>().maximumJumpForce /= multiplier;
+            player.GetComponent<FlightSystem>().maxFlightSpeed /= multiplier;
             
             //Remove power up object
             Destroy(gameObject);

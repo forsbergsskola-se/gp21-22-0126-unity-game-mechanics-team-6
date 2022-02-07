@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5687006455575713947}
   - component: {fileID: 5687006455575713946}
   - component: {fileID: 5687006455575713945}
-  - component: {fileID: -845640965469956869}
-  - component: {fileID: 5312013574761689467}
+  - component: {fileID: 815990498973608348}
+  - component: {fileID: 1334466055701813531}
   m_Layer: 0
-  m_Name: PowerUpJumpForce
+  m_Name: PowerUpTeleport
   m_TagString: PowerUpSize
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +64,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9941a58a8906ac04db9854aa8ba07584, type: 2}
-  - {fileID: -3846018093981099296, guid: 155b3607b8ca3a347984ba7f3d1fbaa7, type: 3}
+  - {fileID: 2100000, guid: ac706618b18e9ac4d94b90e26f36be35, type: 2}
+  - {fileID: -6478536213147159724, guid: 155b3607b8ca3a347984ba7f3d1fbaa7, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +100,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-845640965469956869
+--- !u!114 &815990498973608348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,13 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5687006455575713951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75906bd9c4cf1d44dad6b895c9e38679, type: 3}
+  m_Script: {fileID: 11500000, guid: aaf469d4c7554d84686f91bdb802b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 1.4
-  duration: 100
-  pickupEffect: {fileID: 1662821318268026, guid: d9d49e719e8f60f42b85d33381fd5061, type: 3}
---- !u!114 &5312013574761689467
+  teleportations: 2
+  duration: 10
+  pickupEffect: {fileID: 1284778659018410, guid: 884c7fe551d0bb8458b2bf591421bc9f, type: 3}
+--- !u!114 &1334466055701813531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
