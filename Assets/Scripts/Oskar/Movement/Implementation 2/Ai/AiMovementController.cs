@@ -10,21 +10,22 @@ namespace Oskar.Movement.Implementation2.Ai
     {
         public MovementInputRelay movementInputRelay;
 
-        public Vector3 TargetPosition;
+        [HideInInspector] public Vector3 TargetPosition;
 
+        private const float deadZone = 0.5f; 
 
         private void FixedUpdate()
         {
             var currentPosition = transform.position;
 
-            if (TargetPosition.x > currentPosition.x)
+            if (TargetPosition.x < currentPosition.x - deadZone)
                 movementInputRelay.MoveLeft();
-            else if (TargetPosition.x < currentPosition.x)
+            else if (TargetPosition.x > currentPosition.x + deadZone)
                 movementInputRelay.MoveRight();
             
-            if (TargetPosition.y > currentPosition.y)
+            if (TargetPosition.y > currentPosition.y + deadZone)
                 movementInputRelay.MoveUp();
-            else if (TargetPosition.y < currentPosition.y)
+            else if (TargetPosition.y < currentPosition.y - deadZone)
                 movementInputRelay.MoveDown();
         }
     }
