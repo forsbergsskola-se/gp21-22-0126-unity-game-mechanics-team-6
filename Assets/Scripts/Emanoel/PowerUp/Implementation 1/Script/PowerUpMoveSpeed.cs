@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oskar.Movement.Implementation1.HorizontalMovement;
 using UnityEngine;
 
 public class PowerUpMoveSpeed : MonoBehaviour
@@ -21,7 +22,7 @@ public class PowerUpMoveSpeed : MonoBehaviour
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
         //Apply effect to the player
-        player.GetComponent<PlayerWalkController>().moveSpeed *= multiplier;
+        player.GetComponent<HorizontalMovementSystem>().maxHorizontalMovementSpeed *= multiplier;
         
         //disable all visual for powerup
         GetComponent<MeshRenderer>().enabled = false;
@@ -37,7 +38,7 @@ public class PowerUpMoveSpeed : MonoBehaviour
             yield return new WaitForSeconds(duration);
             
             //Reverse the effect on our player
-            player.GetComponent<PlayerWalkController>().moveSpeed /= multiplier;
+            player.GetComponent<HorizontalMovementSystem>().maxHorizontalMovementSpeed /= multiplier;
             
             //Remove power up object
             Destroy(gameObject);
