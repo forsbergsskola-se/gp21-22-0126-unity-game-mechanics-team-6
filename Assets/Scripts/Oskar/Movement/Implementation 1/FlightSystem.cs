@@ -63,8 +63,7 @@ namespace Oskar.Movement.Implementation1.Flight
             
                 BoostUpOnce();
             }
-            else Debug.Log("Out of fuel"); // TODO: Replace with ui element
-        
+
             Fly = false;
         }
 
