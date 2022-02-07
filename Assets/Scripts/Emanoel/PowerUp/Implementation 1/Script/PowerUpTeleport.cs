@@ -6,6 +6,9 @@ public class PowerUpTeleport : MonoBehaviour
 {
     public int teleportations = 2;
     
+    [Tooltip("0 = Forever, otherwise in seconds")]
+    public float duration = 10f;
+    
     public GameObject pickupEffect;
    
     void OnTriggerEnter(Collider other)
@@ -26,7 +29,10 @@ public class PowerUpTeleport : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(duration);
+        
+        //Reverse the effect on our player
+        player.GetComponent<PowerUpTeleportScript>().teleportations = 0;
 
         //Remove power up object
         Destroy(gameObject);
