@@ -25,6 +25,6 @@ public class MoveTowardsPlayerAI : MonoBehaviour
         var horizontalDirectionToPlayer = directionToPlayer.x;
         // var horizontalDirectionToPlayer = Mathf.Sign(directionToPlayer.x); //This will always keep our enemy at max speed.
 
-        commandContainer.walkCommand = horizontalDirectionToPlayer;
+        commandContainer.walkHorizontalCommand = horizontalDirectionToPlayer;
     }
 }
