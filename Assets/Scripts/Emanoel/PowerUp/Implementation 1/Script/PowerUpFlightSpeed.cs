@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Oskar.Movement.Implementation1.Flight;
 using UnityEngine;
 
-public class PowerUpJumpForce : MonoBehaviour
+public class PowerUpFlightSpeed : MonoBehaviour
 {
     public float multiplier = 1.4f;
     [Tooltip("0 = Forever, otherwise in seconds")]
