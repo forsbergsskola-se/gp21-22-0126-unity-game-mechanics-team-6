@@ -1,4 +1,5 @@
 using UnityEngine;
+using Team6.Toofan.Managers;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerInputController : MonoBehaviour
     public bool JumpInputUp { get; private set; }
     public bool JumpInput { get; private set; }
 
+    
+
     private void Update()
     {
         GetInput();
@@ -19,7 +22,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void GetInput()
     {
-        WalkInput = Input.GetAxis("Horizontal");
+        WalkInput = Input.GetAxis(Axis.HORIZONTAL_AXIS);
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput = Input.GetKey(KeyCode.Space);
