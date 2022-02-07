@@ -22,8 +22,6 @@ public class PowerUpSize : MonoBehaviour
 
         //Apply effect to the player
         player.transform.localScale *= multiplier;
-        player.GetComponent<GroundChecker>().groundCheckLength *= multiplier;
-        player.GetComponent<GroundChecker>().groundCheckRadius *= multiplier;
         
         //disable all visual for powerup
         GetComponent<MeshRenderer>().enabled = false;
@@ -40,8 +38,6 @@ public class PowerUpSize : MonoBehaviour
             
             //Reverse the effect on our player
             player.transform.localScale /= multiplier;
-            player.GetComponent<GroundChecker>().groundCheckLength /= multiplier;
-            player.GetComponent<GroundChecker>().groundCheckRadius /= multiplier;
             
             //Remove power up object
             Destroy(gameObject);
