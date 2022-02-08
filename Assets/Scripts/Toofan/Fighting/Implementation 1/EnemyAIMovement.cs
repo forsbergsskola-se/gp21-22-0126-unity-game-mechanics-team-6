@@ -4,55 +4,91 @@ using Team6.Toofan.Animations;
 using Team6.Toofan.Managers;
 using UnityEngine;
 
-public class EnemyAIMovement : MonoBehaviour
+namespace Team6.Toofan.Fighting
 {
-    private CharacterAnimation enemyAnim;
-
-    private Rigidbody rigidbody;
-    [SerializeField] float speed = 2.5f;
-    [SerializeField] float attackRange = 1f;
-    [SerializeField] float chasePlayerRange = 1f;
-
-    float currentAttackTime;
-    float defaultAttackTime = 2f;
-    bool followPlayer;
-    bool attackPlayer;
-
-    Transform playerTarget;
-
-    private void Awake()
+    public class EnemyAIMovement : MonoBehaviour
     {
-        enemyAnim = GetComponentInChildren<CharacterAnimation>();
-        rigidbody = GetComponent<Rigidbody>();
+        private CharacterAnimation enemyAnim;
 
-        playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        followPlayer = true;
-        currentAttackTime = defaultAttackTime;
+        private Rigidbody enemyBody;
+        [SerializeField] float speed = 2.5f;
+        [SerializeField] float attackRange = 0.4f;
+        [SerializeField] float chasePlayerRange = 1f;
 
-    }
+        float currentAttackTime;
+        float defaultAttackTime = 2f;
+        bool followPlayer;
+        bool attackPlayer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        FollowTarget();
-    }
+        Transform playerTarget;
 
-    void FollowTarget()
-    {
-        if (!followPlayer)
-            return;
-        if(Vector3.Distance(transform.position, playerTarget.position) > attackRange)
+        private void Awake()
         {
-            transform.LookAt(playerTarget);
-            rigidbody.velocity = transform.forward * speed;
+            enemyAnim = GetComponentInChildren<CharacterAnimation>();
+            enemyBody = GetComponent<Rigidbody>();
 
-            if(rigidbody.velocity.sqrMagnitude != 0)
+            playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+            followPlayer = true;
+            currentAttackTime = defaultAttackTime;
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            FollowTarget();
+            AttackTheTarget();
+        }
+
+        private void FixedUpdate()
+        {
+            
+        }
+
+        void FollowTarget()
+        {
+            if (!followPlayer)
+                return;
+
+            if (Vector3.Distance(transform.position, playerTarget.position) > attackRange)
             {
+                transform.LookAt(playerTarget);
+                enemyBody.velocity = transform.forward * speed;
 
+                if (enemyBody.velocity.sqrMagnitude != 0)
+                {
+                    enemyAnim.Movement(1);
+                }
+            }
+            else if (Vector3.Distance(transform.position, playerTarget.position) <= attackRange)
+            {
+                Debug.Log(Vector3.Distance(transform.position, playerTarget.position));
+                enemyBody.velocity = Vector3.zero;
+                enemyAnim.Movement(0);
+                followPlayer = false;
+                attackPlayer = true;
+            }
+        }
+
+        void AttackTheTarget()
+        {
+            if (!attackPlayer) return;
+
+            currentAttackTime += Time.deltaTime;
+
+            if (currentAttackTime > defaultAttackTime)
+            {
+                enemyAnim.EnemyAttack(Random.Range(0, 3));
+                currentAttackTime = 0;
+            }
+            if (Vector3.Distance(transform.position, playerTarget.position) > attackRange + chasePlayerRange)
+            {
+                attackPlayer = false;
+                followPlayer = true;
             }
         }
     }
