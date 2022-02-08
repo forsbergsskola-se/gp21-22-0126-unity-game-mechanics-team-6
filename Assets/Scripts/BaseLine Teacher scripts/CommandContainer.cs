@@ -9,4 +9,6 @@ public class CommandContainer : MonoBehaviour
     public bool jumpCommandDown;
     public bool jumpCommandUp;
     public bool jumpCommand;
+    public bool kickAttackCommand;
+    public bool handAttackCommand;
 }

@@ -12,6 +12,8 @@ public class PlayerInputController : MonoBehaviour
     public bool JumpInputDown { get; private set; }
     public bool JumpInputUp { get; private set; }
     public bool JumpInput { get; private set; }
+    public bool AttackKickInput { get; private set; }
+    public bool AttackHandInput { get; private set; }
 
     
 
@@ -28,6 +30,8 @@ public class PlayerInputController : MonoBehaviour
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput = Input.GetKey(KeyCode.Space);
+        AttackHandInput = Input.GetKeyDown(KeyCode.Z);
+        AttackKickInput = Input.GetKeyDown(KeyCode.X);
     }
 
     private void SetCommands()
@@ -37,5 +41,7 @@ public class PlayerInputController : MonoBehaviour
         commandContainer.jumpCommandDown = JumpInputDown;
         commandContainer.jumpCommandUp = JumpInputUp;
         commandContainer.jumpCommand = JumpInput;
+        commandContainer.handAttackCommand = AttackHandInput;
+        commandContainer.kickAttackCommand = AttackKickInput;
     }
 }
