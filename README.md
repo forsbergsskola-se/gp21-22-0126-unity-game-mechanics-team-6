@@ -57,4 +57,13 @@ PowerUp: Teleport
 Player gets two teleports within a time limit.
 Works better if it is not a platformer view. (2D)
 
+Olle:
+I made different ways for the character to dash in the game.
+
+Version 1 - Level 1:
+When pressing spacebar, player dashes in the direction they're moving in. The dash'force' decreases over time as the button is pressed, to create a nice quick acceleration followed by a slowing down at the end of the dash. I also initially made it with the intention to allow the player to move in 4 directions as I misunderstood how we defined 2.5D, and so I left the code that would allow the player to dash in the Z direction intact, should we want to expand the game in that way, and since it doesn't do any harm to the game in it's current state with the Z position being frozen in the editor
+
+Version 2 - Level 2: 
+A charged dash that lets the player hold down either V(left) or B(right) to charge up a more powerful dash to the left or right depending on which key has been pressed. I considered clamping the values of the dash but found it too funny that player can basically charge up an infinite amount of dashpower to bring myself to implement that limit.
+
 -------------------------------------------
