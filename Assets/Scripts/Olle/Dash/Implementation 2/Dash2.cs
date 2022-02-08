@@ -4,25 +4,46 @@ using UnityEngine;
 
 public class Dash2 : MonoBehaviour
 {
+    public float dashPower = 100f;
+    public float chargedPower = 0;
     public Rigidbody rigidbody;
-    public float speed = 5f;
-    private float dashTime;
-    public float startDashTime;
+    private bool releaseDash = false;
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        dashTime = startDashTime;
+        
     }
 
     private void Update()
     {
-        var dashLeft = Input.GetKey(KeyCode.V);
-        var dashRight = Input.GetKey(KeyCode.B);
-
+        //While holding V or B, charge power
+        if (Input.GetKey(KeyCode.V) || Input.GetKey(KeyCode.B))
+        {
+            chargedPower += Time.deltaTime;
+        }
+        
+        var dashChargeRight = Input.GetKeyDown(KeyCode.V);
+        var dashChargeLeft = Input.GetKeyDown(KeyCode.B);
+        
+        var dashLeft = Input.GetKeyUp(KeyCode.V);
+        var dashRight = Input.GetKeyUp(KeyCode.B);
+        //release charge
         if (dashLeft)
-            rigidbody.velocity = Vector3.left * speed;
+        {
+            releaseDash = true;
+            rigidbody.velocity = Vector3.left * chargedPower * dashPower;
+            releaseDash = false;
+            chargedPower = 0;
+        }
+            
         if (dashRight)
-            rigidbody.velocity = Vector3.right * speed;
+        {
+            releaseDash = true;
+            rigidbody.velocity = Vector3.right * chargedPower * dashPower;
+            releaseDash = false;
+            chargedPower = 0;
+        }
+            
         
     }
 }
