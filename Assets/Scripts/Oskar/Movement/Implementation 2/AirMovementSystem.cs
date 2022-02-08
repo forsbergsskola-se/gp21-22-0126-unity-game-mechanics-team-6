@@ -13,10 +13,10 @@ namespace Oskar.Movement.Implementation2.Flight
         [HideInInspector] public bool MoveUp;
         [HideInInspector] public bool MoveDown;
         
-        [SerializeField] private float horizontalAcceleration = 3;
-        [SerializeField] private float verticalAcceleration = 3;
-        [SerializeField] private float maxHorizontalSpeedPerSecond = 500;
-        [SerializeField] private float maxVerticalSpeedPerSecond = 500;
+        [SerializeField] public float horizontalAcceleration = 3;
+        [SerializeField] public float verticalAcceleration = 3;
+        [SerializeField] public float maxHorizontalSpeedPerSecond = 500;
+        [SerializeField] public float maxVerticalSpeedPerSecond = 500;
         [SerializeField] private Rigidbody myRigidBody;
         
         private float maxHorizontalSpeedPerUpdate;
