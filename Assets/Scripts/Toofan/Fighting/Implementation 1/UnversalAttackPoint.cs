@@ -21,6 +21,12 @@ public class UnversalAttackPoint : MonoBehaviour
 
     public void DetectCollision()
     {
+        Collider[] hit = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+        if(hit.Length > 0)
+        {
+            print("Hit!" + hit[0].gameObject.name);
 
+            gameObject.SetActive(false);
+        }
     }
 }
