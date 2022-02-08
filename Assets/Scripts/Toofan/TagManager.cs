@@ -16,6 +16,10 @@ namespace Team6.Toofan.Managers
         public const string HIGHKICK_TRIGGER = "HighKick";
 
         public const string KNEEKICK_TRIGGER = "KneeKick";
+        public const string KNOCKDOWN_TRIGGER = "KnockDown";
+        public const string HIT_TRIGGER = "Hit";
+
+        public const string STANDUP_TRIGGER = "StandUp";
 
         public const string DEAD_TRIGGER = "DEAD";
     }

@@ -53,5 +53,29 @@ namespace Team6.Toofan.Animations
             animator.SetTrigger(AnimationTags.DEAD_TRIGGER);
         }
 
+        public void EnemyAttack(int attack)
+        {
+            if (attack == 0)
+                animator.SetTrigger(AnimationTags.BOXINGRIGHT_TRIGGER);
+            if (attack == 1)
+                animator.SetTrigger(AnimationTags.BOXINGLEFT_TRIGGER);
+            if (attack == 2)
+                animator.SetTrigger(AnimationTags.HIGHKICK_TRIGGER);
+        }
+
+        public void KnockDown()
+        {
+            animator.SetTrigger(AnimationTags.KNOCKDOWN_TRIGGER);
+        }
+
+        public void GetHit()
+        {
+            animator.SetTrigger(AnimationTags.HIT_TRIGGER);
+        }
+
+        public void StandUp()
+        {
+            animator.SetTrigger(AnimationTags.STANDUP_TRIGGER);
+        }
     }
 }

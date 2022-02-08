@@ -40,7 +40,7 @@ public class PlayerWalkController : MonoBehaviour
 
     private void AnimateMovement()
     {
-        if (commandContainer.walkHorizontalCommand !=0 || commandContainer.walkVerticalCommand != 0)
+        if (myRigidbody.velocity.sqrMagnitude != 0)
             characterAnim.Movement(0.5f);
         else
             characterAnim.Movement(0);
