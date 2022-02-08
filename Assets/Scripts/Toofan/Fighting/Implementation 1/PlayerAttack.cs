@@ -66,8 +66,8 @@ public class PlayerAttack : MonoBehaviour
             currentComboState == ComboStates.KneeKick)
                 return;
             if (currentComboState == ComboStates.None ||
-            currentComboState == ComboStates.PunchLeft ||
-            currentComboState == ComboStates.PunchRight)
+            currentComboState == ComboStates.PunchRight ||
+            currentComboState == ComboStates.PunchLeft)
                 currentComboState = ComboStates.HighKick;
             else if (currentComboState == ComboStates.HighKick)
                 currentComboState++;
@@ -106,8 +106,8 @@ public class PlayerAttack : MonoBehaviour
 public enum ComboStates
 {
     None,
-    PunchLeft,
     PunchRight,
+    PunchLeft,
     ElbowAttack,
     HighKick,
     KneeKick
