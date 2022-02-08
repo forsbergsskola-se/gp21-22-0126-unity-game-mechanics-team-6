@@ -97,6 +97,7 @@ public class PlayerAttack : MonoBehaviour
             if(currentComboTime <= 0)
             {
                 currentComboState = ComboStates.None;
+                isTimeToRest = false;
                 currentComboTime = defaultComboTime;
             }
         }
