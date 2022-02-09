@@ -49,8 +49,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492872454017166
 GameObject:
@@ -101,8 +101,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492872857638220
 GameObject:
@@ -153,8 +153,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492872945824394
 GameObject:
@@ -205,8 +205,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492873211895080
 GameObject:
@@ -257,8 +257,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492873498209812
 GameObject:
@@ -309,8 +309,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492873725972137
 GameObject:
@@ -361,8 +361,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4196492873824720789
 GameObject:
@@ -413,8 +413,8 @@ MonoBehaviour:
     m_Bits: 512
   radius: 1
   damage: 2
-  isPlayer: 1
-  isEnemy: 0
+  isPlayer: 0
+  isEnemy: 1
   hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &4733288587588086932
 GameObject:
@@ -4805,7 +4805,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734983259224563439}
-  m_LocalRotation: {x: -0, y: 0.9993901, z: -0, w: 0.03491966}
+  m_LocalRotation: {x: 0, y: 0.99939024, z: 0, w: 0.034916993}
   m_LocalPosition: {x: -34.81, y: -0.01, z: -26.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

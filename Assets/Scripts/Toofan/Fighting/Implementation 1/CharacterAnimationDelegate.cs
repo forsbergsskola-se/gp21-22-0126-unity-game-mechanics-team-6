@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Team6.Toofan.Fighting;
 using Team6.Toofan.Managers;
 using UnityEngine;
 
@@ -17,11 +18,11 @@ namespace Team6.Toofan.Animations
         public GameObject rightFootAttackPoint;
 
         public float standUpTimer = 2f;
-        private CharacterAnimation animationScript;
+        private CharacterAnimation anim;
 
         private void Awake()
         {
-            animationScript = GetComponent<CharacterAnimation>();
+            anim = GetComponent<CharacterAnimation>();
         }
         void LeftHandAttackOn()
         {
@@ -122,12 +123,14 @@ namespace Team6.Toofan.Animations
 
         void EnemyStandUp()
         {
-            StartCoroutine(StandUpAfterTimer());
+            StartCoroutine(StandUpTimer());
+            //GetComponentInParent<EnemyAIMovement>().attackPlayer = true;
+            //GetComponentInParent<EnemyAIMovement>().enabled = true;
         }
-        IEnumerator StandUpAfterTimer()
+        IEnumerator StandUpTimer()
         {
             yield return new WaitForSeconds(standUpTimer);
-            animationScript.StandUp();
+            anim.StandUp();
         }
     }
 }

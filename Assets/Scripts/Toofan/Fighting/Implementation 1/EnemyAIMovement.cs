@@ -17,8 +17,8 @@ namespace Team6.Toofan.Fighting
 
         float currentAttackTime;
         float defaultAttackTime = 2f;
-        bool followPlayer;
-        bool attackPlayer;
+        public bool followPlayer;
+        public bool attackPlayer;
 
         Transform playerTarget;
 
