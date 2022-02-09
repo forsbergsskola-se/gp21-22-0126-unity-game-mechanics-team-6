@@ -57,6 +57,8 @@ PowerUp: Teleport
 Player gets two teleports within a time limit.
 Works better if it is not a platformer view. (2D)
 
+-------------------------------------------
+
 Olle:
 I made different ways for the character to dash in the game.
 
