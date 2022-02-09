@@ -27,7 +27,7 @@ public class Dash2 : MonoBehaviour
         
         var dashLeft = Input.GetKeyUp(KeyCode.V);
         var dashRight = Input.GetKeyUp(KeyCode.B);
-        //release charge
+        //release charge to the left
         if (dashLeft)
         {
             releaseDash = true;
@@ -35,7 +35,7 @@ public class Dash2 : MonoBehaviour
             releaseDash = false;
             chargedPower = 0;
         }
-            
+        //release charge to the right
         if (dashRight)
         {
             releaseDash = true;
@@ -43,7 +43,5 @@ public class Dash2 : MonoBehaviour
             releaseDash = false;
             chargedPower = 0;
         }
-            
-        
     }
 }
