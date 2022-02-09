@@ -11,7 +11,7 @@ public class UnversalAttackPoint : MonoBehaviour
     public bool isPlayer;
     public bool isEnemy;
 
-    public GameObject hitFX;
+    public GameObject hitFXPrefab;
    
     // Update is called once per frame
     void Update()
@@ -25,8 +25,23 @@ public class UnversalAttackPoint : MonoBehaviour
         if(hit.Length > 0)
         {
             print("Hit!" + hit[0].gameObject.name);
+           
+            if (isPlayer)
+            {
+                var hitFxPos = hit[0].transform.position;
+                hitFxPos.y += 1.3f;
 
+                if(hit[0].transform.forward.x > 0)
+                {
+                    hitFxPos.x += 0.3f;
+                }else if(hit[0].transform.forward.x < 0)
+                {
+                    hitFxPos.x -= 0.3f; 
+                }
+                Instantiate(hitFXPrefab, hitFxPos, Quaternion.identity);
+            }
             gameObject.SetActive(false);
+            
         }
     }
 }
