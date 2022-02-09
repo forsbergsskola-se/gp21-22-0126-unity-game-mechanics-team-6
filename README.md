@@ -69,3 +69,14 @@ Version 2 - Level 2:
 A charged dash that lets the player hold down either V(left) or B(right) to charge up a more powerful dash to the left or right depending on which key has been pressed. I considered clamping the values of the dash but found it too funny that player can basically charge up an infinite amount of dashpower to bring myself to implement that limit.
 
 -------------------------------------------
+Toofan:
+
+
+I made a Fighting System that a character can get into the hand to hand combat with the enemy, there are two Keys that are responsible for character Attack which they are X for punches and Z for Kicks. These inputs trigger different sets of attacks and rapidly pressing them will create a COMBOS and player can mix variety of movements to eliminate the enemy.
+Also I created the Enemy Fighting system which it looks for player and runs towards him/her and when it reached in the range of attacks it combines it moves to attack the player also there is a health mechanism implemented which indicates enemy and players health Bar.
+There are animation delegates and events for each movements and attacks.
+
+For level two:
+Player also have its own battle technique but it can equip weapons and get in battles in long ranges, There combinations of takedowns in the player which automaticallyu trigger when get in short range with The Enemy. the health and animations delegates are universal but character input switch from X and Z to Q and E to shoot and throw.
+
+
