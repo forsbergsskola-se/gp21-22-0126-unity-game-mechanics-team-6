@@ -9,6 +9,9 @@ public class Health : MonoBehaviour
     public float health = 100f;
     private CharacterAnimation animation;
     private EnemyAIMovement enemyMovement;
+    private Collider mainCollider;
+    private Collider[] allColliders;
+    private Rigidbody rb;
 
     private bool isDead;
     public bool isPlayer;
@@ -17,6 +20,10 @@ public class Health : MonoBehaviour
     {
         animation = GetComponentInChildren<CharacterAnimation>();
         enemyMovement = GetComponent<EnemyAIMovement>();
+        mainCollider = GetComponent<Collider>();
+        allColliders = GetComponentsInChildren<Collider>(true);
+        rb = GetComponent<Rigidbody>();
+        
     }
 
     public void ApplyDamage(float damage, bool knockDown)
@@ -26,8 +33,7 @@ public class Health : MonoBehaviour
         health -= damage;
         if(health <= 0f)
         {
-            animation.Dead();
-            isDead = true;
+            EnemyDeath();
 
             if (isPlayer)
             {
@@ -53,5 +59,24 @@ public class Health : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DoRagdoll(bool isRagdoll)
+    {
+        foreach (var col in allColliders)
+        {
+            col.enabled = isRagdoll;
+            mainCollider.enabled = !isRagdoll;
+            rb.useGravity = !isRagdoll;
+            GetComponentInChildren<Animator>().enabled = !isRagdoll;
+        }
+    }
+    void EnemyDeath()
+    {
+        animation.Dead();
+        rb.AddForce(-Vector3.forward * 0.3f);
+        isDead = true;
+        DoRagdoll(true);
+        GetComponent<EnemyAIMovement>().enabled = false;
     }
 }

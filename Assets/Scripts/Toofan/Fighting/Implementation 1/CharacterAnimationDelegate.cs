@@ -16,6 +16,13 @@ namespace Team6.Toofan.Animations
         public GameObject rightKneeAttackPoint;
         public GameObject rightFootAttackPoint;
 
+        public float standUpTimer = 2f;
+        private CharacterAnimation animationScript;
+
+        private void Awake()
+        {
+            animationScript = GetComponent<CharacterAnimation>();
+        }
         void LeftHandAttackOn()
         {
             leftHandAttackPoint.SetActive(true);
@@ -113,5 +120,14 @@ namespace Team6.Toofan.Animations
             leftFootAttackPoint.tag = Tags.UNTAGGED_TAG;
         }
 
+        void EnemyStandUp()
+        {
+            StartCoroutine(StandUpAfterTimer());
+        }
+        IEnumerator StandUpAfterTimer()
+        {
+            yield return new WaitForSeconds(standUpTimer);
+            animationScript.StandUp();
+        }
     }
 }
