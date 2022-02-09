@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController1 : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     private Transform target;
     public float distance = -8f;

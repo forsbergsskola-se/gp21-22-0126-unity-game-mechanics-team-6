@@ -7,7 +7,7 @@ namespace Team6.Toofan.Fighting
 {
     public class PlayerAttack : MonoBehaviour
     {
-        private CommandContainer1 commandContainer;
+        private CommandContainer commandContainer;
         private CharacterAnimation characterAnimation;
         bool isTimeToRest;
         float defaultComboTime = 0.4f;
@@ -17,7 +17,7 @@ namespace Team6.Toofan.Fighting
 
         void Start()
         {
-            commandContainer = GetComponentInChildren<CommandContainer1>();
+            commandContainer = GetComponentInChildren<CommandContainer>();
             characterAnimation = GetComponentInChildren<CharacterAnimation>();
 
             currentComboState = ComboStates.None;

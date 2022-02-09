@@ -1,10 +1,10 @@
 using UnityEngine;
 using Team6.Toofan.Managers;
 
-public class PlayerInputController1 : MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
     [SerializeField] 
-    private CommandContainer1 commandContainer;
+    private CommandContainer commandContainer;
 
     //Currently these fields are not accessed from other scripts. But I'll leave them public to show an example of public getter with private setter.
     public float walkInputHorizontal { get; private set; }
