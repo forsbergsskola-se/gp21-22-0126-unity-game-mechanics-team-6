@@ -1387,6 +1387,10 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8302052347848706781, guid: 2cc9d97749b34f345b22eefec5835e6e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8512589547337680955, guid: 2cc9d97749b34f345b22eefec5835e6e, type: 3}
       propertyPath: inputKeys
       value: 
