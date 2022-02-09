@@ -51,7 +51,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &131359018
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &592669591
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &843192491
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &1278272499
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &1400325173
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &1758008049
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +363,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &1946625585
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   damage: 2
   isPlayer: 1
   isEnemy: 0
-  hitFX: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
+  hitFXPrefab: {fileID: 1319638081725528, guid: 2974555caa7a6704eb8f549d99367f35, type: 3}
 --- !u!1 &8901674127845140107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 8902202659106449495}
   - component: {fileID: 8902202659106449494}
   - component: {fileID: 421726239}
+  - component: {fileID: 6572912945529222977}
   m_Layer: 6
   m_Name: Player_TF
   m_TagString: Player
@@ -1274,6 +1275,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517de4b91185d044687478dc8b962676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6572912945529222977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902202659106449488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23464090aa185442b0cd36e460c4312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isPlayer: 1
 --- !u!1 &8902202660632331812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,6 +2879,7 @@ GameObject:
   - component: {fileID: 8900325524936526925}
   - component: {fileID: 8900325524936526930}
   - component: {fileID: 1637208061}
+  - component: {fileID: 1986101978}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2939,6 +2955,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b1b83106f6589469acd1323e9a892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1986101978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903268542220868737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0351229ee20b04095bcc91781cfc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHandAttackPoint: {fileID: 1946625585}
+  leftElbowAttackPoint: {fileID: 1278272499}
+  leftKneeAttackPoint: {fileID: 131359018}
+  leftFootAttackPoint: {fileID: 592669591}
+  rightHandAttackPoint: {fileID: 1758008049}
+  rightElbowAttackPoint: {fileID: 32946198}
+  rightKneeAttackPoint: {fileID: 843192491}
+  rightFootAttackPoint: {fileID: 1400325173}
 --- !u!1 &8903270192013983247
 GameObject:
   m_ObjectHideFlags: 0

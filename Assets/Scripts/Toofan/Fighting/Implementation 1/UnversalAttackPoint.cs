@@ -1,48 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using Team6.Toofan.Managers;
 using UnityEngine;
 
-public class UnversalAttackPoint : MonoBehaviour
+namespace Team6.Toofan.Fighting
 {
-    public LayerMask collisionLayer;
-    public float radius = 1f;
-    public float damage = 2f;
-
-    public bool isPlayer;
-    public bool isEnemy;
-
-    public GameObject hitFXPrefab;
-   
-    // Update is called once per frame
-    void Update()
+    public class UnversalAttackPoint : MonoBehaviour
     {
-        DetectCollision();
-    }
+        public LayerMask collisionLayer;
+        public float radius = 1f;
+        public float damage = 2f;
 
-    public void DetectCollision()
-    {
-        Collider[] hit = Physics.OverlapSphere(transform.position, radius, collisionLayer);
-        if(hit.Length > 0)
+        public bool isPlayer;
+        public bool isEnemy;
+
+        public GameObject hitFXPrefab;
+
+        // Update is called once per frame
+        void Update()
         {
-            print("Hit!" + hit[0].gameObject.name);
-           
-            if (isPlayer)
+            DetectCollision();
+        }
+
+        public void DetectCollision()
+        {
+            Collider[] hit = Physics.OverlapSphere(transform.position, radius, collisionLayer);
+            if (hit.Length > 0)
             {
-                var hitFxPos = hit[0].transform.position;
-                hitFxPos.y += 1.3f;
+                print("Hit!" + hit[0].gameObject.name);
 
-                if(hit[0].transform.forward.x > 0)
+                if (isPlayer)
                 {
-                    hitFxPos.x += 0.3f;
-                }else if(hit[0].transform.forward.x < 0)
-                {
-                    hitFxPos.x -= 0.3f; 
+                    var hitFxPos = hit[0].transform.position;
+                    hitFxPos.y += 1.3f;
+
+                    if (hit[0].transform.forward.x > 0)
+                    {
+                        hitFxPos.x += 0.3f;
+                    }
+                    else if (hit[0].transform.forward.x < 0)
+                    {
+                        hitFxPos.x -= 0.3f;
+                    }
+
+                    Instantiate(hitFXPrefab, hitFxPos, Quaternion.identity);
+
+                    if(gameObject.CompareTag(Tags.RIGHTARM_TAG) || gameObject.CompareTag(Tags.LEFTLEG_TAG))
+                    {
+                        hit[0].GetComponent<Health>().ApplyDamage(damage, true);
+                    }
+                    else
+                    {
+                        hit[0].GetComponent<Health>().ApplyDamage(damage, false);
+                    }
                 }
+                gameObject.SetActive(false);
 
-                Instantiate(hitFXPrefab, hitFxPos, Quaternion.identity);
             }
-            gameObject.SetActive(false);
-            
         }
     }
 }

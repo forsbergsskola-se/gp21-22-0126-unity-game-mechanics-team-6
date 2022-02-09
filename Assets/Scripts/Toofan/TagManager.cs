@@ -30,7 +30,11 @@ namespace Team6.Toofan.Managers
         public const string GROUND_TAG = "Ground";
         public const string ENEMY_TAG = "Enemy";
         public const string MAINCAMERA_TAG = "MainCamera";
-
+        public const string LEFTARM_TAG = "LeftArm";
+        public const string LEFTLEG_TAG = "LeftLeg";
+        public const string RIGHTARM_TAG = "RightArm";
+        public const string RIGHTLEG_TAG = "RightLeg";
+        public const string UNTAGGED_TAG = "Untagged";
     }
 
     public class Axis
