@@ -2,11 +2,11 @@ using UnityEngine;
 using Team6.Toofan.Managers;
 using Team6.Toofan.Animations;
 
-public class PlayerWalkController : MonoBehaviour
+public class PlayerWalkController1 : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
-    [SerializeField] private CommandContainer commandContainer;
-    [SerializeField] private GroundChecker groundChecker;
+    [SerializeField] private CommandContainer1 commandContainer;
+    [SerializeField] private GroundChecker1 groundChecker;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float chargingMoveSpeedFactor = 0.5f;
     CharacterAnimation characterAnim;

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MoveTowardsPlayerAI : MonoBehaviour
+public class MoveTowardsPlayerAI1 : MonoBehaviour
 {
-    [SerializeField] private CommandContainer commandContainer;
+    [SerializeField] private CommandContainer1 commandContainer;
     [SerializeField] private Transform playerTransform;
 
     private void Start()

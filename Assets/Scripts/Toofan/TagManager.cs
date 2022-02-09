@@ -21,7 +21,8 @@ namespace Team6.Toofan.Managers
 
         public const string STANDUP_TRIGGER = "StandUp";
 
-        public const string DEAD_TRIGGER = "DEAD";
+        public const string DEAD_TRIGGER = "isDead";
+        public const string IsDEAD_TRIGGER = "isDead_1";
     }
 
     public class Tags

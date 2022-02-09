@@ -1175,7 +1175,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8902202659106449488}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -1289,6 +1289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   isPlayer: 1
+  capsuleCollider: {fileID: 0}
+  allColiders: []
 --- !u!1 &8902202660632331812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,6 +2977,7 @@ MonoBehaviour:
   rightElbowAttackPoint: {fileID: 32946198}
   rightKneeAttackPoint: {fileID: 843192491}
   rightFootAttackPoint: {fileID: 1400325173}
+  standUpTimer: 2
 --- !u!1 &8903270192013983247
 GameObject:
   m_ObjectHideFlags: 0

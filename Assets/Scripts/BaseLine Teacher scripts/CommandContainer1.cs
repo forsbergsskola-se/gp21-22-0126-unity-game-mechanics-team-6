@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CommandContainer : MonoBehaviour
+public class CommandContainer1 : MonoBehaviour
 {
     //These fields are visible in the inspector, which can be useful for testing.
     //But in some cases we might want to use [HideInInspector] or getters/setters to hide these fields.

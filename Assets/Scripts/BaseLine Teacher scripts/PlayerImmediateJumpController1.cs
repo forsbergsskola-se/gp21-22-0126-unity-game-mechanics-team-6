@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerImmediateJumpController : MonoBehaviour
+public class PlayerImmediateJumpController1 : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
-    [SerializeField] private CommandContainer commandContainer;
-    [SerializeField] private GroundChecker groundChecker;
+    [SerializeField] private CommandContainer1 commandContainer;
+    [SerializeField] private GroundChecker1 groundChecker;
     [SerializeField] private float jumpForce = 500f;
 
     private void Update()

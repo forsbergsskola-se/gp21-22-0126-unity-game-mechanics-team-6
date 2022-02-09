@@ -21,12 +21,12 @@ namespace Team6.Toofan.Fighting
         public bool attackPlayer;
 
         Transform playerTarget;
-
+        Health health;
         private void Awake()
         {
             enemyAnim = GetComponentInChildren<CharacterAnimation>();
             enemyBody = GetComponent<Rigidbody>();
-
+            health = GetComponent<Health>();
             playerTarget = GameObject.FindGameObjectWithTag(Tags.PLAYER_TAG).transform;
         }
         // Start is called before the first frame update
@@ -40,6 +40,7 @@ namespace Team6.Toofan.Fighting
         // Update is called once per frame
         void Update()
         {
+            if (health.isDead) return;
             FollowTarget();
             AttackTheTarget();
         }
