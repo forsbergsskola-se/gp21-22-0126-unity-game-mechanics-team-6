@@ -38,6 +38,7 @@ public class UnversalAttackPoint : MonoBehaviour
                 {
                     hitFxPos.x -= 0.3f; 
                 }
+
                 Instantiate(hitFXPrefab, hitFxPos, Quaternion.identity);
             }
             gameObject.SetActive(false);
