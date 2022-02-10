@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
             col.enabled = isRagdoll;
             capsuleCollider.enabled = !isRagdoll;
             GetComponent<Rigidbody>().useGravity = !isRagdoll;
-            //GetComponentInChildren<Animator>().enabled = !isRagdoll;
+            GetComponentInChildren<Animator>().enabled = !isRagdoll;
         }
     }
 }
