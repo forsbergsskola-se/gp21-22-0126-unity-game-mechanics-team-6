@@ -12,7 +12,7 @@ public class DeactivateGameObject : MonoBehaviour
 
     void DeactiveAfterTime()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
    

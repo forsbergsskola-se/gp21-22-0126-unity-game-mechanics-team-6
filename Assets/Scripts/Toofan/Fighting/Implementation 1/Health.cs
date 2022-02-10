@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
         enemyMovement = GetComponent<EnemyAIMovement>();
         capsuleCollider = GetComponent<Collider>();
         allColiders = GetComponentsInChildren<Collider>();
+        GoRagDoll(false);
     }
 
     public void ApplyDamage(float damage, bool knockDown)
@@ -30,8 +31,8 @@ public class Health : MonoBehaviour
         health -= damage;
         if(health <= 0f)
         {
-            EnemyDeath();
-
+            isDead = true;
+            GoRagDoll(true);
             if (isPlayer)
             {
 
@@ -60,22 +61,9 @@ public class Health : MonoBehaviour
     }
 
     
-    void EnemyDeath()
-    {
-        GetComponent<Rigidbody>().AddForce(-Vector3.forward * 0.4f);
-        anim.Dead();
-        isDead = true;
-        
-        GetComponent<EnemyAIMovement>().enabled = false;
-        StartCoroutine(RagDollWait());
+   
 
-    }
-
-    IEnumerator RagDollWait()
-    {
-        yield return new WaitForSeconds(3);
-        GoRagDoll(true);
-    }
+   
     public void GoRagDoll(bool isRagdoll)
     {
         foreach (var col in allColiders)
@@ -83,7 +71,7 @@ public class Health : MonoBehaviour
             col.enabled = isRagdoll;
             capsuleCollider.enabled = !isRagdoll;
             GetComponent<Rigidbody>().useGravity = !isRagdoll;
-            GetComponentInChildren<Animator>().enabled = !isRagdoll;
+            //GetComponentInChildren<Animator>().enabled = !isRagdoll;
         }
     }
 }
