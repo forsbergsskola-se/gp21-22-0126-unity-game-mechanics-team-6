@@ -72,6 +72,6 @@ Also I created the Enemy Fighting system which it looks for player and runs towa
 There are animation delegates and events for each movements and attacks.
 
 For level two:
-Player also have its own battle technique but it can equip weapons and get in battles in long ranges, There combinations of takedowns in the player which automaticallyu trigger when get in short range with The Enemy. the health and animations delegates are universal but character input switch from X and Z to Q and E to shoot and throw.
+Player is the car that flys and shoot laser beams to the drones and eliminate them and shooting mechanic is space bar 
 
 
