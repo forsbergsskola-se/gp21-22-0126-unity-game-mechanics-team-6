@@ -51,12 +51,7 @@ Version 2 - Level 2:
 A Powerup that effects the player and the enemy.
 Giving the player positive stats and the enemy Negative stats
 	•	Player: Faster Movement Speed, Enemy: Slower MovementSpeed	
-
-Some extra PowerUps that was planning on being used, works but needs some different changes:
-PowerUp: Teleport
-Player gets two teleports within a time limit.
-Works better if it is not a platformer view. (2D)
-
+	
 -------------------------------------------
 
 Olle:
