@@ -36,6 +36,7 @@ namespace Team6.Toofan.Managers
         public const string RIGHTARM_TAG = "RightArm";
         public const string RIGHTLEG_TAG = "RightLeg";
         public const string UNTAGGED_TAG = "Untagged";
+        public const string VEHICLE_TAG = "Vehicle";
     }
 
     public class Axis

@@ -8,6 +8,8 @@ TagManager:
   - RightArm
   - LeftLeg
   - RightLeg
+  - PowerUpSize
+  - Vehicle
   layers:
   - Default
   - TransparentFX

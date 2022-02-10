@@ -1129,6 +1129,10 @@ GameObject:
   - component: {fileID: 8902202659106449494}
   - component: {fileID: 421726239}
   - component: {fileID: 6572912945529222977}
+  - component: {fileID: 8902202660716891302}
+  - component: {fileID: 8902202660716891303}
+  - component: {fileID: 8902202660716891304}
+  - component: {fileID: 8902202660716891305}
   m_Layer: 6
   m_Name: Player_TF
   m_TagString: Player
@@ -1288,9 +1292,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  isDead: 0
   isPlayer: 1
   capsuleCollider: {fileID: 0}
   allColiders: []
+--- !u!114 &8902202660716891302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902202659106449488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da6c65dc109c724396f73afae3a1d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8902708609653420731}
+--- !u!114 &8902202660716891303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902202659106449488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec337654f4aaf741aa5534be10e239f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flightSystem: {fileID: 8902202660716891304}
+  horizontalMovementSystem: {fileID: 8902202660716891305}
+--- !u!114 &8902202660716891304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902202659106449488}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0577f7074f9250d44884313de691d9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fly: 0
+  maxFlightFuel: 150
+  fuelUsagePerSecond: 60
+  fuelRegenPerSecond: 100
+  maxFuelRegenCooldown: 30
+  upwardsBoostPerUpdate: 3
+  maxFlightSpeed: 5
+  myRigidbody: {fileID: 8902202659106449498}
+--- !u!114 &8902202660716891305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902202659106449488}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0b1939efcb8a348b967de3e55e32b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveLeft: 0
+  MoveRight: 0
+  maxHorizontalMovementSpeed: 4
+  horizontalVelocityPerSecond: 50
+  myRigidbody: {fileID: 8902202659106449498}
 --- !u!1 &8902202660632331812
 GameObject:
   m_ObjectHideFlags: 0
