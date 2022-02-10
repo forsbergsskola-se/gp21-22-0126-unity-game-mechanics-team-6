@@ -132,5 +132,15 @@ namespace Team6.Toofan.Animations
             yield return new WaitForSeconds(standUpTimer);
             anim.StandUp();
         }
+
+        void CharacterDead()
+        {
+            Invoke("DeActivateCharacter", 2f);
+        }
+
+        void DeActivateCharacter()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

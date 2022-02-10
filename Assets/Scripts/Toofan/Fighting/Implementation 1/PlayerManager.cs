@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-   public GameObject player;
+    public GameObject player;
+    public SceneController sceneController;
 
     private void Awake()
     {
@@ -23,13 +24,7 @@ public class PlayerManager : MonoBehaviour
         {
             collision.transform.parent = gameObject.transform;
             player.GetComponent<SkinnedMeshRenderer>().enabled = false;
-            GetComponent<PlayerWalkController>().enabled = false;
-            GetComponent<PlayerImmediateJumpController>().enabled = false;
-            GetComponent<PlayerChargeJumpController>().enabled = false;
-
-            GetComponent<HorizontalMovementSystem>().enabled = true;
-            GetComponent<FlightSystem>().enabled = true;
-            GetComponent<MovementController>().enabled = true;
+            sceneController.NextScene();
         }
     }
 }

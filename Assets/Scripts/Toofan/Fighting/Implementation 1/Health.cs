@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Team6.Toofan.Animations;
 using Team6.Toofan.Fighting;
+using Team6.Toofan.Managers;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -35,7 +36,7 @@ public class Health : MonoBehaviour
             GoRagDoll(true);
             if (isPlayer)
             {
-
+                GameObject.FindGameObjectWithTag(Tags.ENEMY_TAG).GetComponent<EnemyAIMovement>().enabled = false;
             }
             return;
         }

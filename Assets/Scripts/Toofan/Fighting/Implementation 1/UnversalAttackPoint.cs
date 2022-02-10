@@ -54,6 +54,10 @@ namespace Team6.Toofan.Fighting
                         hit[0].GetComponent<Health>().ApplyDamage(damage, false);
                     }
                 }
+                if (isEnemy)
+                {
+                    hit[0].GetComponent<Health>().ApplyDamage(damage, false);
+                }
                 gameObject.SetActive(false);
 
             }
